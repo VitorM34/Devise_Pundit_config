@@ -19,3 +19,5 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   - isso cria um  model User (em app/models/user.rb)
   - Logo depois ela cria uma migration no banco
   - Rode rails db:migrate ou se tiver usando docker, docker-compose exec (nome do container) rails db:migrate
+*Agora vamos gerar as views do devise com o comando abaixo
+```rails generate devise views```
