@@ -15,3 +15,5 @@ Estarei adicionando um readme explicando como eu fiz a configuracao da gem devis
 ```ruby
 config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 ```
+* criar um model de user com o comando - (rails generate devise User)
+  - isso criara um modelo dentro do banco de user
