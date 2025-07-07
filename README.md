@@ -46,7 +46,7 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 * Pass0 3: Agora abaixo teremos uma configuração simples para traduzir os inputs do devise
 
 * Abra o ```en.yml``` e renomeie para ```pt-BR.yml```
-* Agora abaixo irei deixar um arquivo padrão para a configuração da tradução das mensagens do devise.
+* Agora abaixo irei deixar um arquivo padrão para a configuração da tradução das mensagens do devise, mas lembrando que o mesmo pode ser configurado de acordo com o seu projeto.
   ```yml
   pt-BR:
   activerecord:
@@ -197,6 +197,29 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
         other: 'Não foi possível salvar %{resource}: %{count} erros.'
   ```
 
+  # Traduzindo as views
 
+* para traduzir as views pesonalizadas do devise, devemos colocar a seguinte configuração para os campos que são fixos.
+* abaixo um exemplo de um label email, onde devemos colocar o t de translate como mostra o nosso exemplo abaixo, para que a gem funcione de maneira correta.
+```ruby
+<%= f.label :email, t('activerecord.attributes.user.email') %>
+<%= f.email_field :email %>
+```
+* Agora dentro de config/environment/development.rb devemos descomentar a linha ou adionar a seguinte configuração:
+  ```ruby
+   # Raises error for missing translations.
+   config.i18n.raise_on_missing_translations = true
+  ```
+
+#Adicionando a gem Pundit 
+* Primeiramente devemos rodar o comando dentro do nosso projeto para a adicionar a gem pundit ```bundle add pundit```
+* Agora adicionado no Gemfile devemos rodar: ```bundle install```
+* Depois disso temos que incluir dentro do nosso controller o Pundit::Authorization como o abaixo:
+  ```ruby
+  class ApplicationController < ActionController::Base
+   include Pundit::Authorization
+  end
+  ```
+* Agora vamos rodar o seguinte comando: ```rails g pundit:install```
 
 
