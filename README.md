@@ -26,3 +26,15 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   ```ruby
   devise_for :user
   ```
+  * agora vamos proteger nosso controller com o comando abaixo
+    ```ruby
+    class HomeController < ApplicationController
+  before_action :authenticate_user!
+  
+  def index
+    # Só acessível se o usuário estiver logado
+  end
+end
+```
+
+
